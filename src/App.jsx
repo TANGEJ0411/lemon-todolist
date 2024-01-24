@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import FilterBtn from "./FilterBtn";
+import FormInput from "./FormInput";
 // import TodoInput from "./TodoInput";
 // import TodoList from "./TodoList";
 
@@ -9,21 +10,6 @@ function App() {
   const [todoList, setTodoList] = useState([]);
 
   const [filter, setFilter] = useState("all");
-
-  const [todo, setTodo] = useState("");
-
-  const handleOnChange = (e) => {
-    setTodo(e.target.value);
-  };
-
-  const handleOnSubmit = (e, todoList, todo) => {
-    e.preventDefault();
-    setTodoList([
-      ...todoList,
-      { id: Date.now(), title: todo, isCompleted: false },
-    ]);
-    setTodo("");
-  };
 
   const handleOnCompleted = (id) => {
     const newTodoList = todoList.map((todo) => {
@@ -47,13 +33,7 @@ function App() {
           />
         );
       })}
-      <form
-        onSubmit={(e) => {
-          handleOnSubmit(e, todoList, todo);
-        }}
-      >
-        <input value={todo} onChange={handleOnChange} />
-      </form>
+      <FormInput todoList={todoList} setTodoList={setTodoList} />
       <ul>
         {todoList
           .filter((todoFilter) => {
