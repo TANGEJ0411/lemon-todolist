@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import FilterBtn from "./FilterBtn";
 import FormInput from "./FormInput";
+import ListItem from "./ListItem";
 // import TodoInput from "./TodoInput";
 // import TodoList from "./TodoList";
 
@@ -47,16 +48,11 @@ function App() {
           })
           .map((todo) => {
             return (
-              <li key={todo.id}>
-                <p>{todo.title}</p>
-                <button
-                  onClick={() => {
-                    handleOnCompleted(todo.id);
-                  }}
-                >
-                  {todo.isCompleted ? "已完成" : "未完成"}
-                </button>
-              </li>
+              <ListItem
+                id={todo.id}
+                title={todo.title}
+                isCompleted={todo.isCompleted}
+              />
             );
           })}
       </ul>
