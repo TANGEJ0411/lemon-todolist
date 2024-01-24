@@ -1,8 +1,9 @@
-import React from "react";
 import ListItem from "./ListItem";
 
 function TodoList({ todoList, filter, setTodoList }) {
+  //控制todo是否完成
   const handleOnCompleted = (id) => {
+    // 建立新的todoList變數裝新的todoList
     const newTodoList = todoList.map((todo) => {
       if (todo.id === id) {
         return { ...todo, isCompleted: !todo.isCompleted };

@@ -13,6 +13,8 @@ function App() {
 
   const [filter, setFilter] = useState("all");
 
+  const [array, setArray] = useState([1, 2, 3]);
+
   return (
     <>
       <h1>My todo list</h1>
