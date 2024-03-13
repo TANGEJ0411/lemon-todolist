@@ -3,9 +3,7 @@ function ListItem({ id, title, isCompleted }) {
     <li>
       <p>{title}</p>
       <button
-        onClick={() => {
-          handleOnCompleted(id);
-        }}
+      // onClick={}
       >
         {isCompleted ? "已完成" : "未完成"}
       </button>
