@@ -1,6 +1,9 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
+import useTodoContext from "./hook/useTodoContext";
 
 function FormInput() {
+  const { addTodo } = useTodoContext();
+
   const inputRef = useRef("");
 
   const handleOnChange = (e) => {
@@ -9,7 +12,7 @@ function FormInput() {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    console.log(inputRef.current.value);
+    addTodo(inputRef.current.value);
     inputRef.current.value = "";
   };
 
