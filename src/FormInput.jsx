@@ -1,17 +1,22 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 function FormInput() {
-  const [todo, setTodo] = useState("");
+  const inputRef = useRef("");
 
   const handleOnChange = (e) => {
-    setTodo(e.target.value);
+    inputRef.current.value = e.target.value;
+  };
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    console.log(inputRef.current.value);
+    inputRef.current.value = "";
   };
 
   return (
-    <form
-    // onSubmit={}
-    >
-      <input value={todo} onChange={handleOnChange} />
+    <form onSubmit={handleOnSubmit}>
+      <input onChange={handleOnChange} ref={inputRef} />
+      <button style={{ margin: "10px" }}>確認</button>
     </form>
   );
 }
