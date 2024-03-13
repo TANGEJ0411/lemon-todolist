@@ -1,6 +1,11 @@
 import ListItem from "./ListItem";
+import useTodoContext from "./hook/useTodoContext";
 
 function TodoList() {
+  const { todo } = useTodoContext();
+
+  console.log(todo, "TodoList");
+
   return (
     <ul>
       {/* {todoList.map((todo) => {
